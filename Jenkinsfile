@@ -6,11 +6,10 @@ pipeline {
 }
 
     stages {
-        stage('Build maven') {
+        stage('Build stage') {
            steps {
+            bat 'npm init -y'
             bat 'npm install'
-            bat 'npm run build'
-            echo "Build Successful"
 
            }
         }

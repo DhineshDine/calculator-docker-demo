@@ -10,8 +10,16 @@ pipeline {
            steps {
             bat 'npm install'
             bat 'npm run build' 
+            echo 'Build is successful'
 
            }
+        }
+
+        stage('Test Time'){
+            steps {
+                bat 'npm test'
+                echo 'Test is successful'
+            }
         }
     }
 }

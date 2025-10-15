@@ -8,7 +8,9 @@ pipeline {
     stages {
         stage('Build maven') {
            steps {
-            bat 'mvn clean install'
+            bat 'npm install'
+            bat 'npm run build'
+            echo "Build Successful"
 
            }
         }

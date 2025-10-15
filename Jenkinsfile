@@ -10,6 +10,7 @@ pipeline {
            steps {
             bat 'npm init -y'
             bat 'npm install'
+            bat 'npm build'
 
            }
         }

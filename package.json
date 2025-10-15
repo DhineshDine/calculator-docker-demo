@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "echo Building the project...",
-    "test": "jtest",
+    "test": "jest",
     "start": "node server.js"
 },
   "devDependencies": {

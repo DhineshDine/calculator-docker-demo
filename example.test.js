@@ -1,4 +1,4 @@
-const { calculate, clearResult } = require('./calculator');
+const { calculate, clearResult } = require('./calculator.html');
 
 describe('Calculator', () => {
   it('should calculate simple arithmetic expressions', () => {

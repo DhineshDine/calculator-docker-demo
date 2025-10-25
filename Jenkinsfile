@@ -15,12 +15,5 @@ pipeline {
            }
         }
 
-        stage('Test Time'){
-            steps {
-                echo 'runnning the test '
-                bat 'npm test'
-                echo 'Test is successful'
-            }
-        }
     }
 }

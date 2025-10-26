@@ -18,15 +18,15 @@ pipeline {
 
         stage ('Deploy the app'){
         steps {
-withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-pwd')]) {
+withCredentials([string(credentialsId: 'docker-pwd', variable: 'DINE_PWD')]) {
 
-                            bat 'docker login -u dhineshdine -p ${docker-pwd}'
+                            bat "docker login -u dhineshdine -p ${DINE_PWD}"
 
 
           
 
 
-                  bat 'docker build -t dhineshdine/cal-demo-jenkins:latest .'
+              bat 'docker build -t dhineshdine/cal-demo-jenkins:latest .'
               bat 'docker push dhineshdine/cal-demo-jenkins:latest'
 
               

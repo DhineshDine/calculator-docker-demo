@@ -16,7 +16,7 @@ pipeline {
         }
 
 
-        stage ('Deploy the app'){
+        stage('Deploy the app'){
         steps {
           withCredentials([string(credentialsId: 'docker-pwd', variable: 'Docker-calc')]) {
 

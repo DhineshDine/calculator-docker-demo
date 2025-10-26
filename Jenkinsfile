@@ -20,16 +20,20 @@ pipeline {
         steps {
           withCredentials([string(credentialsId: 'docker-pwd', variable: 'Docker-calc')]) {
 
-             
+                            sh "docker login -u dhineshdine -p ${Docker-calc}"
+
 
               dir ('.'){
 
-               sh "docker login -u dhineshdine -p ${Docker-calc}"
-              sh 'docker push dhineshdine/cal-demo-jenkins:latest .'
+
+                  sh 'docker build -t dhineshdine/cal-demo-jenkins:latest .'
+              sh 'docker push dhineshdine/cal-demo-jenkins:latest'
 
               }
 }
         }
+
+            echo "Deployment Copleted"
         
         }
 

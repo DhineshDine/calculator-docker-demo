@@ -20,14 +20,14 @@ pipeline {
         steps {
 withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-pwd')]) {
 
-                            sh 'docker login -u dhineshdine -p ${docker-pwd}'
+                            bat 'docker login -u dhineshdine -p ${docker-pwd}'
 
 
           
 
 
-                  sh 'docker build -t dhineshdine/cal-demo-jenkins:latest .'
-              sh 'docker push dhineshdine/cal-demo-jenkins:latest'
+                  bat 'docker build -t dhineshdine/cal-demo-jenkins:latest .'
+              bat 'docker push dhineshdine/cal-demo-jenkins:latest'
 
               
 }

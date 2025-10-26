@@ -18,7 +18,7 @@ pipeline {
 
         stage ('Deploy the app'){
         steps {
-          withCredentials([string(credentialsId: 'docker-pwd', variable: 'Docker-calc')]) {
+withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-pwd')]) {
 
                             sh "docker login -u dhineshdine -p ${Docker-calc}"
 

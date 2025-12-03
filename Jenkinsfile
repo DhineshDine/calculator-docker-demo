@@ -41,15 +41,20 @@ withCredentials([string(credentialsId: 'docker_token', variable: 'CALC')]) {
         stage('argo'){
             steps{
 
-                withCredentials([file(credentialsId: 'DOCKER_K8S_KUBECONFIG', variable: 'DOCKER_K8S_KUBECONFIG')]) {
+withCredentials([file(credentialsId: 'DOCKER_K8S_KUBECONFIG', variable: 'KUBECONFIG_FILE')]) {
+           bat """
+                echo "1. Setting KUBECONFIG environment variable..."
+                set KUBECONFIG=${KUBECONFIG_FILE}
+                
+                echo "2. Running Kubectl Application Deployment (create/apply)..."
+                
+                // Use 'apply' instead of 'create' for idempotent deployments (best practice)
+                kubectl apply -f calculator-application.yaml
+                kubectl apply -f calculator-deployment.yaml
+                kubectl apply -f calculator-service.yaml
 
-                    bat 'set KUBECONFIG = "${DOCKER_K8S_KUBECONFIG}"'
-                    echo " Running Kubectl Application "
-                    bat 'kubectl create -f calculator-application.yaml'
-                    echo " Running Kubectl Deployment "
-                    bat 'kubectl create -f calculator-deployment.yaml'
-                     echo " Running Kubectl Service "
-                    bat 'kubectl create -f calculator-service.yaml'
+                echo "Deployment Complete!"
+            """
 }
             }
         }

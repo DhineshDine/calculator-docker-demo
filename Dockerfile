@@ -7,7 +7,7 @@ RUN npm install
 FROM node:20-alpine
 WORKDIR /calculator
 COPY --from=build /calculator/node_modules ./node_modules
-COPY clculator.html server.js .
+COPY calculator.html server.js .
 EXPOSE 5000
 CMD [ "node","server.js" ]
 

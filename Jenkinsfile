@@ -43,7 +43,7 @@ withCredentials([string(credentialsId: 'docker_token', variable: 'CALC')]) {
 
                 withCredentials([file(credentialsId: 'DOCKER_K8S_KUBECONFIG', variable: 'DOCKER_K8S_KUBECONFIG')]) {
 
-                    bat 'export KUBECONFIG = "${DOCKER_K8S_KUBECONFIG}"'
+                    bat 'set KUBECONFIG = "${DOCKER_K8S_KUBECONFIG}"'
                     echo " Running Kubectl Application "
                     bat 'kubectl create -f calculator-application.yaml'
                     echo " Running Kubectl Deployment "

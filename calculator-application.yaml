@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/DhineshDine/calculator-docker-demo.git
     targetRevision: HEAD
-    path: calculator-docker-demo
+    path: .
   destination:
     server: https://kubernetes.default.svc
     namespace: cal-app

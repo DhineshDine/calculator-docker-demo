@@ -9,4 +9,4 @@ spec:
   ports:
   - port: 80 # The port the Service exposes internally
     targetPort: 5000 # <--- ***CHANGE THIS LINE*** (Matches the containerPort)
-    nodePort: 30080 # A unique, easily remembered port for external access
+    nodePort: 30081 # A unique, easily remembered port for external access

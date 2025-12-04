@@ -5,7 +5,7 @@ metadata:
   labels:
     app: calculator-deployment
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
       app: calculator-deployment

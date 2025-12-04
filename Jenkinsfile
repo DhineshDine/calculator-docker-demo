@@ -44,8 +44,7 @@ withCredentials([string(credentialsId: 'docker_token', variable: 'CALC')]) {
 withCredentials([file(credentialsId: 'DOCKER_K8S_KUBECONFIG', variable: 'KUBECONFIG_FILE')]) {
            bat """
                 echo "1. Setting KUBECONFIG environment variable..."
-                set KUBECONFIG=${KUBECONFIG_FILE}
-                
+                 set KUBECONFIG=%KUBECONFIG_FILE% // Use single quotes and batch syntax for variable access                
                 echo "2. Running Kubectl Application Deployment (create/apply)..."
                 
                 // Use 'apply' instead of 'create' for idempotent deployments (best practice)

@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: calculator
-        image: dhineshdine/cal-demo-jenkins:latest
+        image: dhineshdine/cal-demo-jenkins:01
         ports:
         - containerPort: 5000
